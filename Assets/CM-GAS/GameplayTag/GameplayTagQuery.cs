@@ -20,8 +20,8 @@ namespace CMGAS
         private List<GameplayTag> list_gameplayTagDic = new();
         private List<UInt16> list_queryTokenStream = new();
         public List<UInt16> List_queryTokenStream { get { return list_queryTokenStream; } }
-        private CMString userDescription;
-        private CMString autoDescription;
+        private string userDescription;
+        private string autoDescription;
 
         public static bool operator ==(GameplayTagQuery query, GameplayTagQuery other)
         {

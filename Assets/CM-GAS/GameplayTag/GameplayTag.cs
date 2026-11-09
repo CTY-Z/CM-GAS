@@ -1,46 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 namespace CMGAS
 {
-    public class GameplayTag
+    [Serializable]
+    public readonly struct GameplayTag : IEquatable<GameplayTag>, IComparable<GameplayTag>
     {
-        public GameplayTag() { }
         public GameplayTag(CMName tagName) => this.tagName = tagName;
 
-        protected CMName tagName;
+        public readonly CMName tagName;
         public static GameplayTag emptyTag;
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-        public override string ToString()
-        {
-            return tagName.ToString();
-        }
-        public CMName GetTagName()
-        {
-            return tagName;
-        }
-        public bool IsValid()
-	    {
-		    return (tagName != null);
-	    }
-        public static bool operator ==(GameplayTag tag, GameplayTag other)
-        {
-            return tag.tagName == other.tagName;
-        }
-        public static bool operator !=(GameplayTag tag, GameplayTag other)
-        {
-            return tag.tagName != other.tagName;
-        }
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
+        public override int GetHashCode() => tagName.GetHashCode();
+        public override string ToString() => tagName.ToString();
+        public CMName GetTagName() => tagName;
+        public bool IsValid() => tagName.IsValid;
+        public static bool operator ==(GameplayTag tag, GameplayTag other) => tag.tagName == other.tagName;
+        public static bool operator !=(GameplayTag tag, GameplayTag other) => tag.tagName != other.tagName;
 
         public static GameplayTag RequestGameplayTag(CMName name, bool errorIfNotFound = true)
         {
@@ -101,6 +80,11 @@ namespace CMGAS
         {
             return GameplayTagsManager.instance.RequestGameplayTagDirectParent(this);
         }
+
+        public override bool Equals(object other) => other is GameplayTag && Equals(other);
+        public bool Equals(GameplayTag other) => Equals(other);
+
+        public int CompareTo(GameplayTag other) => tagName.CompareTo(other.tagName);
 
         //NetSerialize
         //PostSerialize

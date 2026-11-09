@@ -38,7 +38,7 @@ namespace CMGAS
         public GameplayTag GetCompleteTag() { return completeTagWithParents.Num() > 0 ? 
                 completeTagWithParents.list_parentTag[0] : GameplayTag.emptyTag; }
         public CMName GetCompleteTagName() { return GetCompleteTag().GetTagName(); }
-        public CMString GetCompleteTagString() { return GetCompleteTag().ToString(); }
+        public string GetCompleteTagString() { return GetCompleteTag().ToString(); }
         public List<GameplayTagNode> GetChildTagNodes() { return list_childTag; }
         public GameplayTagNode GetParentTagNode() { return parentNode; }
 

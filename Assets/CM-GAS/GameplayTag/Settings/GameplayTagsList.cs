@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameplayTagsList
 {
-    CMString configFileName;
+    string configFileName;
 
 
 }

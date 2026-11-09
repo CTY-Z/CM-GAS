@@ -66,7 +66,9 @@ namespace CMGAS
 
         public GameplayTagQueryExpression AddTag(string tagString)
         {
-            return AddTag(new CMName(tagString));
+            //todo ”…nameIdPool¥¥Ω®
+            return null;
+            //return AddTag(new CMName(tagString));
         }
 
         public GameplayTagQueryExpression AddTag(CMName tagName)

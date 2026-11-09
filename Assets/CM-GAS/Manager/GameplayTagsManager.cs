@@ -13,9 +13,10 @@ namespace CMGAS
         {
             foreach (var str in list_tagString)
             {
-                GameplayTag resquestedTag = RequestGameplayTag(new CMName(str.TrimStart().TrimEnd()), errorIfNotFound);
-                if (resquestedTag.IsValid())
-                    container.AddTag(resquestedTag);
+                //todo
+                //GameplayTag resquestedTag = RequestGameplayTag(new CMName(str.TrimStart().TrimEnd()), errorIfNotFound);
+                //if (resquestedTag.IsValid())
+                //    container.AddTag(resquestedTag);
             }
         }
 
